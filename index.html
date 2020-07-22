@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      VanHack's Upcoming Events
+    </title>
+    <!-- Bootstrap style -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- JQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+    <!-- Bootstrap scripts -->
+    <!-- (even though part of these imports are blocked, generating nasty erros in the console, the part that is imported is enough to assemble this page together) -->
+    <!-- Assuming public libraries are not considered plagiarism here... -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"></script>
+    <!-- Redux -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/redux/3.7.2/redux.min.js'></script>
+    <!-- Font Awesome for social media icons -->
+    <link href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" rel="stylesheet">
+    <!-- Page Scripts and Style -->
+    <script src="index.js"></script>
+    <link href="index.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Static pre-rendered inactive navbar based on current VanHack site, since this is NOT the main goal of the exercise -->
+    <div id="header">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">VanHack</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Jobs</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#">
+                  Events
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Jobs Pipeline</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Slack</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Invite a Friend</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a 
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+                  More
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Courses</a>
+                  <a class="dropdown-item" href="#">Library</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- Main Content Container -->
+    <div class="container">
+      <div id="main">
+        <!-- Events Header Area -->
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+            <h1 class="display-4">VanHack's Upcoming Events</h1>
+            <p class="lead">
+              Check all the events types: MeetUps, Leaps, Recruiting Missions, VanHackatons, Open and Premium-only Webinars.
+            </p>
+          </div>
+        </div>
+        <!-- Featured Events, designed for the Leap, Mission and VanHackathon events -->
+        <div id="carouselEventCaptions" class="carousel slide">
+          <ol class="carousel-indicators" id="carouselEventIndicators">
+            <!-- Feature Event indicadors are rendered here -->
+          </ol>
+          <div class="carousel-inner" id="carouselInnerContent">
+            <!-- Carousel Event slides are rendered here -->
+          </div>
+          <a class="carousel-control-prev" href="#carouselEventCaptions" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselEventCaptions" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+        <!-- Events Accordion group by type -->
+        <div class="accordion" id="accordionEvents">
+          <!-- All Event cards will be rendered here -->
+        </div>
+      </div>
+    </div>
+    <!-- Events Footer Area (Static) -->
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col">
+            <p class="text-center">VanHack</p>
+            <p class="text-center">© 2020</p>
+          </div>
+          <div class="col">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link text-center" href="#">Premium</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-center" href="#">FAQ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-center" href="#">Press</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-center" href="#">Blog</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col">
+            <p>Sign up to our Newsletter</p>
+              <form>
+                <div class="form-group">
+                  <label for="formGroupName">Name</label>
+                  <input type="text" class="form-control" id="formGroupName" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                  <label for="formGroupEmail">Email</label>
+                  <input type="text" class="form-control" id="formGroupEmail" placeholder="Your professional email">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page footer-->
+    <div class="row container-fluid">
+      <hr>
+      <div class="col-sm text-right">
+        Terms of Use
+      </div>
+      <div class="col-sm">
+        Privacy Policy
+      </div>
+      <div class="col-sm">
+        <!-- Share on social media buttons -->
+        <div id="shareSocialTemplate" class="text-center">
+          <ul
+            class="share-buttons"
+            data-source="simplesharingbuttons.com">
+            <li>
+              <a
+                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fvanhack.com%2Fplatform%2F%23%2Fevents&quote="
+                target="_blank"
+                title="Share on Facebook"
+                onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&quote=' + encodeURIComponent(document.URL)); return false;"
+                >
+                <i
+                  class="fab fa-facebook-square fa-2x"
+                  aria-hidden="true">
+                </i>
+                <span class="sr-only">Share on Facebook</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://twitter.com/intent/tweet?source=https%3A%2F%2Fvanhack.com%2Fplatform%2F%23%2Fevents&text=:%20https%3A%2F%2Fvanhack.com%2Fplatform%2F%23%2Fevents"
+                target="_blank"
+                title="Tweet"
+                onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20' + encodeURIComponent(document.URL)); return false;">
+                <i
+                  class="fab fa-twitter-square fa-2x"
+                  aria-hidden="true">
+                </i>
+                <span class="sr-only">Tweet</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fvanhack.com%2Fplatform%2F%23%2Fevents&title=&summary="
+                target="_blank"
+                title="Share on LinkedIn"
+                onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;">
+                <i
+                  class="fab fa-linkedin fa-2x"
+                  aria-hidden="true">
+                </i>
+                <span class="sr-only">Share on LinkedIn</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Since JSX is not supported due to library import block, the page holds its own templates from down here -->
+    <div class="carousel-item" id="carouselItemTemplate" style="display: none;">
+      <img src="" class="d-block w-100" alt="">
+      <div class="carousel-caption d-none d-md-block bg-white text-dark p-1" style="bottom: 35px;">
+        <h5><!-- Slide Label --></h5>
+        <p><!-- Slide description --></p>
+      </div>
+    </div>
+    <!-- Accordion Section Template -->
+    <div class="card" id="accordionSectionTemplate" style="display: none;">
+      <div class="card-header" id="evt">
+        <h2 class="mb-0">
+          <button
+            class="btn btn-link btn-block text-left collapsed"
+            type="button"
+            data-toggle="collapse"
+            data-target="#collapseEvt"
+            aria-expanded="false"
+            aria-controls="collapseEvt">
+            Evt Events
+          </button>
+        </h2>
+      </div>
+      <!-- Events -->
+      <div
+        id="collapseEvt"
+        class="collapse"
+        aria-labelledby="evt"
+        data-parent="#accordionEvents">
+        <div class="card-body">
+          <div class="d-flex justify-content-center flex-wrap" id="evtEvtCards">
+            <!-- Event Cards Here -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Event Card Template -->
+    <div class="p-2"  id="eventCardTemplate" style="display: none;">
+      <div class="card" style="width: 24rem;">
+        <img src="" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title"><!-- TITLE HERE --></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><!-- DATE HERE --></h6>
+          <p class="card-text"><!-- CONTENT HERE --></p>
+          <a
+            href="#"
+            class="btn btn-primary float-right"
+            data-toggle="modal"
+            data-target="#meetup_evt_1">
+            See Details
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Event Details Modal Window Template -->
+    <div
+      class="modal fade"
+      id="eventDetailsTemplate"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="evtModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="evtModalLabel"><!-- TITLE HERE --></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body"><!-- CONTENT HERE --></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" id="apply">Apply</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Event Enrollment Confirmation Modal Window -->
+    <div
+      class="modal fade"
+      id="eventEnrollmentConfirmationModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="evtConfLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="evtConfLabel"><!-- TITLE HERE --></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center">
+            <!-- event details here -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
